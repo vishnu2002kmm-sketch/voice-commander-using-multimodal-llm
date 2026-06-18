@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ARJU VOICE COMMANDER
 
 Boss: Vishnu | Assistant: Arju | Engine: local Ollama VLM (`qwen3-vl:4b`)
@@ -235,3 +236,6 @@ The current repository is a local Python voice-assistant build. The larger full-
 | Wake word not heard | Try aliases: `arjun`, `arjo`, `raju`, `orju`. |
 | Camera not found | Change `CAM_INDEX` in `config.py`. |
 | Long terminal output | Increase or reduce `TERMINAL_VOICE_MAX_CHARS` in `config.py`. |
+=======
+# voice-commander-using-multimodal-llm
+>>>>>>> 6af76ed317c632c8b69a26dee7f24cb94dc6ea4a
