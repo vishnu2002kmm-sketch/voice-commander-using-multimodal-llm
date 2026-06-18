@@ -37,7 +37,7 @@ import config
 
 warnings.filterwarnings("ignore")
 
-# Hard cap — anything above this makes the mic effectively deaf
+# Hard cap — anything above this makes the mic effectively deaf ----
 _ENERGY_MAX = 1500
 _ENERGY_MIN = 300
 
