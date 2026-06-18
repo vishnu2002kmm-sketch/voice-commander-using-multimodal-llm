@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arju Commander</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Local VLM + RAG</p>
+        <h1>Arju Commander</h1>
+      </div>
+      <div class="status-strip" aria-live="polite">
+        <span class="status-pill" id="apiStatus">API</span>
+        <span class="status-pill" id="ollamaStatus">Ollama</span>
+        <span class="status-pill" id="memoryStatus">Memory</span>
+        <a class="docs-link" href="/docs">API Docs</a>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="chat-shell" aria-label="Chat">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Autonomous Session</p>
+            <h2>Chat</h2>
+          </div>
+          <div class="toggle-row">
+            <label><input id="useMemory" type="checkbox" checked> Memory</label>
+            <label><input id="storeAnswer" type="checkbox" checked> Store</label>
+          </div>
+        </div>
+
+        <div class="conversation" id="conversation" aria-live="polite"></div>
+
+        <form class="composer" id="chatForm">
+          <div class="image-preview" id="chatPreview" hidden>
+            <img alt="Selected image preview" id="chatPreviewImg">
+            <button class="icon-button" type="button" id="clearChatImage" aria-label="Remove image">x</button>
+          </div>
+          <textarea id="chatInput" rows="3" placeholder="Ask Arju"></textarea>
+          <div class="composer-actions">
+            <label class="file-button">
+              <input id="chatImage" type="file" accept="image/*">
+              Image
+            </label>
+            <button class="primary-button" type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="side-stack">
+        <section class="signal-panel" aria-label="System signal">
+          <canvas id="signalCanvas" width="640" height="360"></canvas>
+          <div class="signal-readout">
+            <div>
+              <p class="eyebrow">Model</p>
+              <strong id="modelName">qwen3-vl:4b</strong>
+            </div>
+            <div>
+              <p class="eyebrow">Stored</p>
+              <strong id="memoryCount">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="tool-panel" aria-label="Vision">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">VLM</p>
+              <h2>Vision</h2>
+            </div>
+          </div>
+          <form id="visionForm" class="tool-form">
+            <textarea id="visionQuestion" rows="2" placeholder="What can you see?"></textarea>
+            <div class="image-preview small" id="visionPreview" hidden>
+              <img alt="Vision image preview" id="visionPreviewImg">
+              <button class="icon-button" type="button" id="clearVisionImage" aria-label="Remove image">x</button>
+            </div>
+            <div class="tool-actions">
+              <label class="file-button">
+                <input id="visionImage" type="file" accept="image/*">
+                Image
+              </label>
+              <button class="secondary-button" type="button" id="cameraButton">Camera</button>
+              <button class="primary-button" type="submit">Ask</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="tool-panel" aria-label="Memory">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">RAG</p>
+              <h2>Memory</h2>
+            </div>
+          </div>
+          <form id="memoryAddForm" class="tool-form">
+            <textarea id="memoryText" rows="2" placeholder="Remember that"></textarea>
+            <button class="secondary-button" type="submit">Save Memory</button>
+          </form>
+          <form id="memorySearchForm" class="tool-form">
+            <input id="memoryQuery" type="text" placeholder="Search memory">
+            <button class="secondary-button" type="submit">Search</button>
+          </form>
+          <pre class="memory-result" id="memoryResult"></pre>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

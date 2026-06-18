@@ -1,0 +1,12 @@
+env/
+__pycache__/
+*.py[cod]
+
+memory/
+screenshots/
+terminal_logs/
+runtime/
+
+.env
+.env.*
+*.log

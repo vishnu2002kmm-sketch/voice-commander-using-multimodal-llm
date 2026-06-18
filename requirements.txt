@@ -1,0 +1,45 @@
+# ============================================================
+#   ARJU COMMANDER — requirements.txt
+# ============================================================
+
+# Ollama Python client (talks to local Ollama server)
+ollama>=0.2.0
+
+# Voice
+pyttsx3>=2.90
+SpeechRecognition>=3.10.4
+PyAudio>=0.2.14
+
+# RAG — vector memory
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+
+# Camera / Vision
+opencv-python>=4.9.0
+Pillow>=10.0.0
+
+# Gesture control
+mediapipe>=0.10.11
+
+# System control
+pyautogui>=0.9.54
+pycaw>=20181003
+comtypes>=1.2.1
+screen-brightness-control>=0.22.1
+pywhatkit>=5.4
+
+# Utilities
+numpy>=1.26.0
+
+# API server
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# ── Installation notes ────────────────────────────────────────
+# 1. Install Ollama from https://ollama.com
+# 2. Pull the model:   ollama pull qwen3-vl:4b
+# 3. Start server:     ollama serve
+# 4. Install packages: pip install -r requirements.txt
+#
+# PyAudio on Windows (if pip fails):
+#   pip install pipwin && pipwin install PyAudio
